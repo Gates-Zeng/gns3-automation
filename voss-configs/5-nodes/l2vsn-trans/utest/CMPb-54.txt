@@ -1,0 +1,1 @@
+show vlan mac-address-entry 244

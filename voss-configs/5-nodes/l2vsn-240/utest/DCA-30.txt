@@ -1,0 +1,6 @@
+show isis spbm i-sid all
+show isis spbm multicast-fib
+l2 tracetree 4051 12980240
+l2 tracetree 4052 12980240
+show vlan mac-address-entry 240
+show vlan remote-mac-table 240

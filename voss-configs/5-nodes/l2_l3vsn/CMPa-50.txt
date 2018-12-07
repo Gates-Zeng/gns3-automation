@@ -1,0 +1,22 @@
+ip vrf yellow vrfid 10
+router vrf yellow
+  ipvpn
+  i-sid 13980010
+  ipvpn enable
+  isis redistribute direct
+  isis redistribute direct enable
+exit
+isis apply redistribute direct vrf yellow
+vlan create 247 type port-mstprstp 0
+vlan i-sid 247 12980247 
+interface Vlan 247
+  vrf yellow
+  ip address 10.25.247.1 255.255.255.0
+exit
+
+
+vlan mem 247 1/4
+
+show isis spbm ip-unicast-fib id 13980010
+
+show ip route vrf yellow

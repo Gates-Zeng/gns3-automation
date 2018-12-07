@@ -1,0 +1,48 @@
+snmp- name DCB-38
+boot config flag telnet
+boot config flag ftp
+boot config flag ssh
+interface GigabitEthernet 1/1-1/2
+  encapsulation dot1q
+  untagged-frames-discard
+  no spanning mstp force-port-state enable
+y
+exit
+vlan members  remove 1 1/1-1/2
+
+spbm
+router isis
+  spbm 1
+  spbm 1 nick-name 0.22.38
+  spbm 1 b-vid 4051-4052 primary 4051
+  manual-area 49.0000
+  system-id 020c.0022.0380
+  sys-name DCB-38
+exit
+vlan create 4051 name B-VLAN-1 type spbm-bvlan
+vlan create 4052 name B-VLAN-2 type spbm-bvlan
+
+interface gigabitEthernet 1/1
+  isis
+  isis spbm 1
+  isis spbm 1 l1-metric 50
+  isis enable
+  no shut
+exit
+
+router isis enable
+cfm spbm enable
+
+vlan create 5 name Mgmt-5  type port 0
+vlan i-sid 5 10220005
+
+interface vlan 5
+  ip address 10.22.5.2 255.255.255.0
+exit
+
+interface gig 1/1-1/8
+  no shut
+exit
+
+
+

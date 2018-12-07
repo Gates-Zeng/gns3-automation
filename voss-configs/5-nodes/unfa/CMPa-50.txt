@@ -1,0 +1,4 @@
+int giga 1/2
+	no fa en
+	fa mess
+exit

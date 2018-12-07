@@ -1,0 +1,4 @@
+show ip route vrf yellow
+show vlan mac-address-entry 245
+show vlan remote-mac-table 245
+show ip arp vrf yellow

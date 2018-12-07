@@ -1,0 +1,5 @@
+show cfm spbm
+l2 ping vlan 4051 routernodename DCB-38
+l2 traceroute vlan 4051 routernodename DCB-38
+l2 ping vlan 4052 routernodename DCB-38
+l2 traceroute vlan 4052 routernodename DCB-38

@@ -1,0 +1,8 @@
+show isis
+show isis spbm
+show isis interface
+show isis adjacencies
+show isis spbm nick-name
+show isis spbm unicast-fib
+show isis spbm unicast-tree 4051
+show isis spbm unicast-tree 4052

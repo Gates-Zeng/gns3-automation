@@ -1,0 +1,4 @@
+show isis
+show isis logical-interface
+show isis adjacencies
+show isis interface

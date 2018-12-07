@@ -1,0 +1,38 @@
+ip vrf blue vrfid 3
+router vrf blue
+ipvpn
+  i-sid 13980003
+  ipvpn enable
+  isis redistribute direct
+  isis redistribute direct enable
+exit
+isis apply redistribute direct vrf blue
+vlan create 1310 type port-mstprstp 0
+vlan isid 1310 12211300
+interface vlan 1310
+  vrf blue
+  ip address 13.21.10.1 255.255.255.0
+exit
+
+router vrf green
+   isis accept i-sid 13980003 enable
+exit
+isis apply accept vrf green
+
+router vrf red
+   isis accept i-sid 13980003 enable
+exit
+isis apply accept vrf red
+
+router vrf blue
+   ip isid-list users list 13980011,13980012
+   isis accept isid-list users enable
+exit
+isis apply accept vrf blue
+
+
+vlan mem 1310 1/4
+
+show isis spbm ip-unicast-fib id 13980003
+
+show ip route vrf blue

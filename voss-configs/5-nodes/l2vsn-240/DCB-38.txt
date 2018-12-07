@@ -1,0 +1,3 @@
+vlan create 240 name Lab-240 type port-mstpr 0
+vlan members 240 1/4
+vlan i-sid 240 12980240

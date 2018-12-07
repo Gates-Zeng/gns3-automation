@@ -1,0 +1,20 @@
+vlan delete 247
+vlan delete 249
+router vrf yellow
+  ipvpn
+  i-sid 13980010
+  ipvpn enable
+  isis redistribute direct
+  isis redistribute direct enable
+exit
+isis apply redistribute direct vrf yellow
+
+show ip route vrf yellow
+
+show vlan mac-address-entry 245
+
+show vlan remote-mac-table 245
+
+show ip arp vrf yellow
+
+

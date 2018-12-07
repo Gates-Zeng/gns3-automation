@@ -1,0 +1,22 @@
+ip vrf red vrfid 12
+router vrf red
+  ipvpn
+  i-sid 13980012
+  ipvpn enable
+  isis redistribute direct
+  isis redistribute direct enable
+exit
+isis apply redistribute direct vrf red
+vlan create 202 type port-mstprstp 0
+vlan i-sid 202 10220202
+interface Vlan 202
+  vrf red
+  ip address 12.22.202.1 255.255.255.0
+exit
+
+
+vlan mem 202 1/4
+
+show isis spbm ip-unicast-fib id 13980012
+
+show ip route vrf red

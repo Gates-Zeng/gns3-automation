@@ -1,0 +1,15 @@
+interface mgmt mgmt
+    ip add 192.168.255.38/24
+exit
+
+router vrf mgmtrouter
+    ip route 0.0.0.0 0.0.0.0 192.168.255.1 wei 10
+exit
+
+boot config flag ftp
+boot config flag ssh
+boot config flag ssh
+boot config flag telnet
+boot config flag tftp
+
+snmp- name DCB-38

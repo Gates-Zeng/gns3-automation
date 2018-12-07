@@ -1,0 +1,9 @@
+
+vlan create 247 type port 0
+vlan mem 247 1/4
+vlan i- 247 12980247
+
+show vlan mac-address-entry 242
+
+show i-sid mac-address-entry 12980247
+

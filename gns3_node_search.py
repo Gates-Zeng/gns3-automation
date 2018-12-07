@@ -1,10 +1,9 @@
 """
-search the project and node-name
-return the console tcp port numbers
+searches the project and node-name
+returns the console tcp port numbers
 """
 
 import requests
-from pprint import pprint
 
 
 def fetch_node_console(gns3_ip, project_name, node_name):

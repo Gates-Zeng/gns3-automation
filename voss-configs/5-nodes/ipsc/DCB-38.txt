@@ -1,0 +1,23 @@
+show ip route
+
+interface loopback 1
+  ip address 1 10.22.0.1/255.255.255.255
+router isis
+  ip-source-address 10.22.0.1
+  spbm 1 ip enable
+exit
+
+show ip route
+
+router isis
+  redistribute direct
+  redistribute direct enable
+exit
+isis apply redistribute direct
+show ip route
+
+show isis spbm ip-unicast-fib all
+
+show ip route
+
+vlan mem 5 1/4

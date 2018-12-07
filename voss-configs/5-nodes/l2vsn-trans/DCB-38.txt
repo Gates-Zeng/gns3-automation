@@ -1,0 +1,4 @@
+vlan create 242 name Lab-242 type port-mstp 0
+vlan members 242 1/4
+vlan i-sid 242 12980241
+

@@ -1,0 +1,4 @@
+
+vlan mem 245 1/4
+
+show i-sid mac-address-entry 12980245

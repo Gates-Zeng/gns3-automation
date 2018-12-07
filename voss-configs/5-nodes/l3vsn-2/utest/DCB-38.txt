@@ -1,0 +1,2 @@
+show isis spbm ip-unicast-fib id 13980012
+show ip route vrf red

@@ -1,14 +1,14 @@
 from push_config import push_config, push_test, capture_test
 
 
-project_name = "fabric-ws-5-nodes-v8"
+project_name = "fabric-ws-5-nodes-int040-1"
 
-gns3_ip = '192.168.10.210'
+# gns3_ip = '192.168.10.210'
 
-# project_name = "workshop_companion_5_nodes-1-int40"
+# project_name = "workshop_companion_5_nodes-1-int40-1"
 
 
-# gns3_ip = '192.168.135.127'
+gns3_ip = '192.168.135.134'
 
 
 node_list_voss = [
@@ -42,16 +42,16 @@ node_list_pc = [
 ]
 
 test_list = [
-       ('mgmt', '0'),
-       ('base', '0'),
+#       ('mgmt', '0'),
+#       ('base', '0'),
        ('l2vsn-240', '3'),
-       ('l2vsn-trans', '4'),
-       ('l2vsn-inter', '5'),
-       ('ipsc', '0'),
-       ('l3vsn', '1'),
-       ('l3vsn-2', '2'),
-       ('l2_l3vsn', '5'),
-     ('fe', '5')
+#       ('l2vsn-trans', '4'),
+#       ('l2vsn-inter', '5'),
+#       ('ipsc', '0'),
+#       ('l3vsn', '1'),
+#       ('l3vsn-2', '2'),
+#       ('l2_l3vsn', '5'),
+#     ('fe', '5')
 ]
 
 

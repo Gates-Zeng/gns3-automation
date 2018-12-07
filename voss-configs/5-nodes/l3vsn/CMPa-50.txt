@@ -1,0 +1,19 @@
+ip vrf green vrfid 11
+router vrf green
+  ipvpn
+  i-sid 13980011
+  ipvpn enable
+  isis redistribute direct
+  isis redistribute direct enable
+exit
+isis apply redistribute direct vrf green
+vlan create 101 type port-mstprstp 0
+vlan i-sid 101 10250101
+interface vlan 101
+  vrf green
+  ip address 11.25.101.1 255.255.255.0
+exit
+
+vlan mem 101 1/4
+
+show isis spbm ip-unicast-fib id 13980011

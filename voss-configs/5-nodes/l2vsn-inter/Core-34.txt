@@ -1,0 +1,26 @@
+ip vrf yellow vrfid 10
+vlan create 245 type port-mstprstp 0
+vlan i-sid 245 12980245
+interface Vlan 245
+  vrf yellow
+  ip address 10.100.245.1 255.255.255.0  
+exit
+vlan create 247 type port-mstprstp 0
+vlan i-sid 247 12980247
+interface vlan 247
+  vrf yellow
+  ip address 10.25.247.1 255.255.255.0  
+exit
+
+vlan create 249 type port-mstprstp 0
+vlan i-sid 249 12980249
+interface vlan 249
+  vrf yellow
+  ip address 10.26.249.1 255.255.255.0  
+exit
+
+show ip route vrf yellow
+show ip arp vrf yellow
+show vlan mac-address-entry 245
+show vlan mac-address-entry 247
+show vlan mac-address-entry 249

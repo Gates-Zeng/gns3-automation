@@ -1,0 +1,2 @@
+show isis spbm ip-unicast-fib all
+show ip route
