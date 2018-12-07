@@ -8,14 +8,18 @@
 7. testing commands fro vpcs
 8. capture results
 """
+import os
 import pexpect
 from gns3_node_search import fetch_node_console
 from ping_test import ping_test
 
 
 def push_config(gns3_ip, project_name, node_name, node_type, config_name):
-    cli_file = "/Users/yzeng/Documents/Gates/My Documents/Working In Progress/Extreme/GNS3/GNS3/scripts/5-nodes/" \
-               + config_name + '/' + node_name + ".txt"
+
+    filepath = './voss-configs/5-nodes/'
+
+    cli_file = filepath + config_name + '/' + node_name + ".txt"
+
     print('starting', node_name, config_name)
     print ('cli_file is', cli_file)
 
@@ -74,7 +78,8 @@ def push_config(gns3_ip, project_name, node_name, node_type, config_name):
 
 def push_test(gns3_ip, project_name, node_name, node_type, test_group):
 
-    vm_file = '/Users/yzeng/Documents/Gates/My Documents/Working In Progress/Extreme/GNS3/GNS3/scripts/test-vm.csv'
+    vm_file = './voss-configs/5-nodes/test-vm.csv'
+
     print('starting', node_name, test_group)
     print('vm_file', vm_file)
 
@@ -93,8 +98,10 @@ def push_test(gns3_ip, project_name, node_name, node_type, test_group):
 
 def upgrade_sw(gns3_ip, project_name, sw_mgmt_ip, node_name, node_type, package_name):
 
-#    working_dir = "/Users/yzeng/Documents/Gates/My Documents/Working In Progress/Extreme/GNS3/GNS3/scripts/5-nodes/"
-    working_dir = "/Users/yzeng/Documents/Gates/My Documents/Working In Progress/Extreme/GNS3"
+    working_dir = '.'
+
+#    working_dir = "/Users/yzeng/Documents/Gates/My Documents/Working In Progress/Extreme/GNS3"
+
     ftp_user = "rwa"
     ftp_pass = "rwa"
 
@@ -180,11 +187,6 @@ def upgrade_sw(gns3_ip, project_name, sw_mgmt_ip, node_name, node_type, package_
 
 def default_sw(gns3_ip, project_name, node_name, node_type):
 
-#    working_dir = "/Users/yzeng/Documents/Gates/My Documents/Working In Progress/Extreme/GNS3/GNS3/scripts/5-nodes/"
-#    working_dir = "/Users/yzeng/Documents/Gates/My Documents/Working In Progress/Extreme/GNS3/"
-    ftp_user = "rwa"
-    ftp_pass = "rwa"
-
 
     child = pexpect.spawn('telnet {0} {1}'.format(gns3_ip, fetch_node_console(gns3_ip, project_name, node_name)))
 
@@ -232,9 +234,6 @@ def default_sw(gns3_ip, project_name, node_name, node_type):
 
 def cleanup_sw(gns3_ip, project_name, node_name, node_type, version):
 
-#    cli_file = working_dir + upgrade + ".txt"
-#    print('starting', node_name, package_name)
-#    print ('cli_file is', cli_file)
 
     child = pexpect.spawn('telnet {0} {1}'.format(gns3_ip, fetch_node_console(gns3_ip, project_name, node_name)))
 
